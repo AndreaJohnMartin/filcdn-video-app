@@ -27,7 +27,7 @@ This application allows users to upload video files that are:
 
 ## 📸 Demo Screenshots
 
-> Output Demo - 1
+> ![Output Demo - 1](https://github.com/user-attachments/assets/4a0bdda7-04fa-4e4c-b190-b54f3e4ef2dc)
 > ![Output Demo - 2](https://github.com/user-attachments/assets/f7a640c4-fd23-4772-8a84-117c933db2ee)
  
 Example:
