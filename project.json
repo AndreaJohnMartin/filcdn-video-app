@@ -1,0 +1,14 @@
+{
+  "name": "FilCDN Video Uploader",
+  "tagline": "Decentralized video streaming using Filecoin PDP + FilCDN",
+  "description": "A web app that allows users to upload and stream videos via Filecoin using Lighthouse's PDP storage and FilCDN delivery. Built using Node.js, Express, Vanilla JS, and HTML/CSS for the PLGenesis Hackathon.",
+  "team": [
+    {
+      "name": "Andrea John Martin",
+      "email": "andrea.johnmartin13@gmail.com"
+    }
+  ],
+  "demo_url": "https://github.com/AndreaJohnMartin/filcdn-video-app",  
+  "video_url": "https://www.loom.com/share/2dd303a096544fc7b83c490a4ec2465d?sid=0eef823a-a1e4-4743-a78f-cfdf280069a7",
+  "technologies": ["Node.js", "Express", "HTML", "CSS", "JavaScript", "Filecoin", "Lighthouse", "FilCDN"]
+}
