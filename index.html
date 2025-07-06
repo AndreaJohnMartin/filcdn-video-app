@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FilCDN Video Uploader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    .file-input-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .custom-file-input {
+      padding: 8px 12px;
+      background: #000;
+      color: #fff;
+      border: 2px solid #555;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #file-name {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #ccc;
+      word-break: break-all;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .success {
+      color: #25d366;
+      margin: 10px 0;
+    }
+
+    code {
+      background: #111;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+
+    a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    video {
+      margin-top: 20px;
+      width: 100%;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🎥 Upload Video to Filecoin via <strong>FilCDN</strong></h2>
+    <form id="uploadForm">
+      <div class="file-input-wrapper">
+        <input type="file" class="custom-file-input" id="video" name="video" accept="video/*" required />
+        <div id="file-name">No file selected</div>
+      </div>
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="result" style="margin-top:20px;"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const result = document.getElementById('result');
+    const fileInput = document.getElementById('video');
+    const fileNameDisplay = document.getElementById('file-name');
+
+    // Show selected file name
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      fileNameDisplay.textContent = file ? file.name : 'No file selected';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const file = fileInput.files[0];
+      const formData = new FormData();
+      formData.append("video", file);
+
+      result.innerHTML = "Uploading... ⏳";
+
+      try {
+        const response = await fetch('http://localhost:3001/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await response.json();
+        const cid = data.cid;
+
+        result.innerHTML = `
+          <div class="success">✅ Uploaded successfully!</div>
+          <div><strong>CID:</strong><br><code>${cid}</code></div><br>
+          🔗 <a href="https://ipfs.io/ipfs/${cid}" target="_blank">View on FilCDN</a><br><br>
+          <video src="https://ipfs.io/ipfs/${cid}" controls></video>
+        `;
+      } catch (err) {
+        console.error(err);
+        result.innerHTML = "❌ Upload failed!";
+      }
+    });
+  </script>
+</body>
+</html>
