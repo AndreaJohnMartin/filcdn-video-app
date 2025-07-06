@@ -1,14 +1,18 @@
-## 🎥 FilCDN Video Streaming App
+# 🎥 FilCDN Video Streaming App
 
 A decentralized video upload and streaming application built for the **PLGenesis Hackathon** under the **FilCDN** category.
+
+---
 
 ## 🚀 Overview
 
 This application allows users to upload video files that are:
 
 - ✅ Stored on Filecoin via **Lighthouse's PDP deals**
-- ✅ Served via **FilCDN for fast delivery**
-- ✅ Streamable directly from IPFS
+- ✅ Served via **FilCDN** for fast delivery
+- ✅ Streamable directly from **IPFS**
+
+---
 
 ## 💡 Features
 
@@ -18,24 +22,38 @@ This application allows users to upload video files that are:
 - Displays CID and streaming link
 - Preview video within the page
 
+---
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML, CSS, Vanilla JavaScript
-- **Backend**: Node.js, Express, Multer
+- **Backend**: Node.js, Express.js, Multer
 - **Storage**: Filecoin (via [Lighthouse](https://lighthouse.storage))
 - **CDN**: FilCDN (enabled in upload config)
+
+---
 
 ## 📸 Demo Screenshots
 
 > ![Output Demo - 1](https://github.com/user-attachments/assets/4a0bdda7-04fa-4e4c-b190-b54f3e4ef2dc)
+>
 > ![Output Demo - 2](https://github.com/user-attachments/assets/f7a640c4-fd23-4772-8a84-117c933db2ee)
- 
-Example:
+
+---
 
 ## 🔗 Live Preview
-> file:///C:/Projects/filcdn-video-app/index.html
+
+```
+https://AndreaJohnMartin.github.io/filcdn-video-app/
+```
+
+> ❌ Do **not** use `file:///C:/...` links — they only work locally.
+
+---
 
 ## 📦 Local Setup
+
+```bash
 # Clone the repo
 git clone https://github.com/AndreaJohnMartin/Blockchain_Internship.git
 cd Blockchain_Internship/filcdn-video-app
@@ -43,35 +61,52 @@ cd Blockchain_Internship/filcdn-video-app
 # Install dependencies
 npm install
 
-# Start the server
+# Start the backend server
 node index.js
 
-# Open index.html in your browser
-✅ Lighthouse Upload API Setup
-API Key is required from Lighthouse Dashboard
+# Then open index.html in your browser
+```
 
-Enabled CDN in upload parameters
+---
+
+## 🔑 Lighthouse Upload API Setup
+
+- API Key is required from [Lighthouse Dashboard](https://lighthouse.storage)
+- CDN is enabled in upload config using:
+
+```js
 enableCDN: true
+```
 
-📁 Folder Structure
+---
+
+## 📁 Folder Structure
+
+```
 filcdn-video-app/
-├── index.html          # Frontend UI
-├── index.js            # Express backend for file upload
-├── upload-test.js      # (optional) standalone test
-├── uploads/            # Temporary storage (auto-deleted)
-└── package.json
+├── index.html        # Frontend UI
+├── index.js          # Express backend for file upload
+├── upload-test.js    # (optional) standalone test
+├── uploads/          # Temporary file storage
+├── package.json
+├── README.md
+```
 
-🏆 Submission
-✅ Submitted under FilCDN Category
+---
 
-✅ Meets all requirements:
+## 🏆 Submission
 
-PDP storage deal ✅
+✅ Submitted under **FilCDN** category  
+✅ Meets all key requirements:
+- PDP storage deal ✅  
+- FilCDN enabled ✅  
+- End-to-end demo working ✅
 
-FilCDN enabled ✅
+---
 
-End-to-end demo working ✅
+## 👤 Author
 
-👤 Author
-Andrea John Martin
-[GitHub](https://github.com/AndreaJohnMartin)
+**Andrea John Martin**  
+🔗 [GitHub Profile](https://github.com/AndreaJohnMartin)
+
+---
