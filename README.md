@@ -47,8 +47,6 @@ This application allows users to upload video files that are:
 https://AndreaJohnMartin.github.io/filcdn-video-app/
 ```
 
-> ❌ Do **not** use `file:///C:/...` links — they only work locally.
-
 ---
 
 ## 📦 Local Setup
